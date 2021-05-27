@@ -1,0 +1,53 @@
+<h3> Create game</h3>
+<form name="newGameCtrl.form" ng-submit="newGameCtrl.createGameHandler()">
+    To add a new game please fill in all the fields below:<br/>
+    <div class="">
+        Title
+        <input type="text" name="title" required ng-model="newGameCtrl.title" ng-maxlength="15"/>
+        <span ng-show="newGameCtrl.form.title.$dirty && newGameCtrl.form.title.$invalid">
+            Title must not exceed 15 characters
+        </span>
+    </div>
+    <div>
+        Price: <input type="number" name="price" required ng-model="newGameCtrl.price"/>
+    </div>
+    <div>
+        Year of Publication:
+        <input type="number" name="year" required ng-model="newGameCtrl.year"  ng-pattern="/^(19[5-9]\d|20[0-4]\d|2021)$/"/>
+        <span ng-show="newGameCtrl.form.year.$invalid && newGameCtrl.form.year.$dirty" > The year must be between 1900 to 2021
+        </span>
+    </div>
+    <div>
+        Rating:
+        <input type="number" name="rating" required ng-model="newGameCtrl.rating" ng-pattern="/^[1-5]{1}$/"/>
+        <span ng-show="newGameCtrl.form.rating.$dirty && newGameCtrl.form.rating.$invalid">
+            Rating must be between 1 to 5
+        </span>
+    </div>
+    <div>
+        Minimum Number of Players:
+        <input type="number" name="minPlayers" required  ng-model="newGameCtrl.minPlayers" ng-pattern="/^[1-5]{1}$/"/>
+        <span ng-show="newGameCtrl.form.minPlayers.$dirty && newGameCtrl.form.minPlayers.$invalid">
+            Minimum players must be at least 1.
+        </span>
+    </div>
+    <div>
+        Maximum Number of Players:
+        <input type="number" name="maxPlayers" required ng-model="newGameCtrl.maxPlayers" ng-pattern="/^[1-9]{1}$/"/>
+        <span ng-show="newGameCtrl.form.maxPlayers.$dirty && newGameCtrl.form.maxPlayers.$invalid">
+            Maximum players cannot exceed 9.
+        </span>
+    </div>
+    <div>
+        Minimum Recommended Player Age:
+        <input type="number" name="minAge" required ng-model="newGameCtrl.minAge"/>
+    </div>
+    <div>
+        Designer name:
+        <input type="text" name="designer" required ng-model="newGameCtrl.designers"/>
+    </div>
+    <div>
+        <button type="submit" class="btn-success">Add Game</button>
+    </div>
+    <BR/>
+</form>

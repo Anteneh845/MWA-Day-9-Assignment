@@ -1,0 +1,12 @@
+<label> Filter by title <input type="text" ng-model="title"/> </label>
+<ul>
+    <li ng-repeat="game in gameListCtrl.games | filter: {title:title}">
+        <a href="/#!/games/{{game._id}}"> <h3> {{game.title | uppercase}} </h3></a>
+        <ul>
+            <li> Game Designers - <b> {{game.designers}} </b></li>
+            <li> Rating - <b> {{game.rate}} </b></li>
+            <li> Year - <b> {{game.rate | limitTo:5}} </b></li>
+            <li> Publisher - <b> {{game.publisher.name}} </b></li>
+        </ul>
+    </li>
+</ul>

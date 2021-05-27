@@ -1,0 +1,19 @@
+<h1> Guitar list </h1>
+
+<label class="m-3">
+    Filter by Brand
+    <input name="brand" ng-model="brand"/>
+</label>
+
+<ul class="m-4">
+    <li ng-repeat="guitar in guitarListCtrl.guitars | filter: {brand: brand}">
+        <a href="/#!/guitars/{{guitar._id}}"> <h3> {{guitar.brand | uppercase}} - {{guitar.year}} </h3> </a>
+        <ul>
+            <li> Guitar type <b> {{guitar.type}} </b></li>
+            <li> String type <b>{{guitar.stringType}} </b></li>
+            <li> Year <b> {{guitar.year}} </b></li>
+            <li> Full description <a href="{{guitar.link}}"> Click here </a></li>
+            <li> Date Added <b> {{guitar.createdOn | date}} </b></li>
+        </ul>
+    </li>
+</ul>
